@@ -101,7 +101,6 @@ Thumbs.db
 *.bin
 wandb/
 runs/
-*.png
 *.jpg
 *.jpeg
 *.safetensors
