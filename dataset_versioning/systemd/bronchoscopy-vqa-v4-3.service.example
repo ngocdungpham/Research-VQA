@@ -1,0 +1,23 @@
+[Unit]
+Description=Bronchoscopy VQA v4.3 production generator
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=1800
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Gen_VQA
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-%h/.config/bronchoscopy-vqa-v4-3.env
+ExecStart=%h/Gen_VQA/.venv/bin/python %h/Gen_VQA/dataset_versioning/run_vqa_v4_3_production.py run
+Restart=on-failure
+RestartSec=120
+TimeoutStopSec=330
+KillSignal=SIGTERM
+Nice=5
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,3 @@
+normality,qa_count,qa_percentage,unique_images,train,validation,test
+normal_true,1062,16.6614,1062,745,157,160
+normal_false,5312,83.3386,5312,3798,754,760

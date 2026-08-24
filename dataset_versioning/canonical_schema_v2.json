@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bronchoscopy_canonical_schema_v2.json",
+  "title": "Bronchoscopy canonical image record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_version",
+    "image_id",
+    "patient_id",
+    "procedure_id",
+    "width",
+    "height",
+    "image_path",
+    "image_sha256",
+    "image_labels",
+    "procedure_labels",
+    "regions",
+    "unmapped_source_labels",
+    "provenance",
+    "quality_flags"
+  ],
+  "properties": {
+    "schema_version": {"const": "bronchoscopy_canonical_schema_v2.0"},
+    "dataset_version": {"type": "string", "pattern": "^canonical_v2\\.[0-9]+$"},
+    "image_id": {"type": "string", "pattern": "^image_[0-9a-f]{20}$"},
+    "patient_id": {"type": "string", "pattern": "^patient_[0-9a-f]{16}$"},
+    "procedure_id": {"type": "string", "pattern": "^procedure_[0-9a-f]{20}$"},
+    "width": {"type": ["integer", "null"], "minimum": 1},
+    "height": {"type": ["integer", "null"], "minimum": 1},
+    "image_path": {"type": ["string", "null"]},
+    "image_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "image_labels": {"$ref": "#/$defs/imageLabels"},
+    "procedure_labels": {"$ref": "#/$defs/procedureLabels"},
+    "regions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/region"}
+    },
+    "unmapped_source_labels": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/sourceLabel"}
+    },
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "quality_flags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "triState": {
+      "type": ["boolean", "null"],
+      "description": "true=confirmed present, false=confirmed absent, null=unannotated/unknown"
+    },
+    "anatomy": {
+      "type": "string",
+      "enum": [
+        "larynx", "vocal_cords", "trachea", "carina",
+        "right_main_bronchus", "left_main_bronchus", "intermediate_bronchus",
+        "right_upper_lobe_bronchus", "right_middle_lobe_bronchus", "right_lower_lobe_bronchus",
+        "left_upper_lobe_bronchus", "left_lower_lobe_bronchus",
+        "left_lingula_segment_bronchus", "left_apical_segment_bronchus"
+      ]
+    },
+    "imageLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normal", "image_quality", "anatomical_location", "evidence_region_ids", "source_label_ids"],
+      "properties": {
+        "normal": {"$ref": "#/$defs/triState"},
+        "image_quality": {"type": ["string", "null"], "enum": ["good", "poor", "unusable", null]},
+        "anatomical_location": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/anatomy"},
+          "uniqueItems": true,
+          "description": "Positive-only set; omitted anatomy concepts are unknown, not negative"
+        },
+        "evidence_region_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "source_label_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "procedureLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lung_cancer", "lesion_site_count", "lesion_extent", "source_label_ids"],
+      "properties": {
+        "lung_cancer": {"$ref": "#/$defs/triState"},
+        "lesion_site_count": {"type": ["string", "null"], "enum": ["single", "multiple", null]},
+        "lesion_extent": {
+          "type": ["string", "null"],
+          "enum": ["single_lobe", "multiple_lobes", "main_bronchus", "carina", "bilateral_lungs", "trachea", null]
+        },
+        "source_label_ids": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "point": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "sourceLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": ["string", "null"]}
+      }
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "region_id", "geometry_hash", "polygon", "bbox_xyxy", "area",
+        "labels", "source_label_ids", "source_annotation_ids", "unmapped_source_labels", "quality_flags"
+      ],
+      "properties": {
+        "region_id": {"type": "string", "pattern": "^region_[0-9]{4,}$"},
+        "geometry_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "polygon": {"type": "array", "items": {"$ref": "#/$defs/point"}, "minItems": 2},
+        "bbox_xyxy": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "number"}, {"type": "number"}, {"type": "number"}, {"type": "number"}
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "area": {"type": "number", "minimum": 0},
+        "labels": {"$ref": "#/$defs/regionLabels"},
+        "source_label_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "source_annotation_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "unmapped_source_labels": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sourceLabel"}
+        },
+        "quality_flags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "regionLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "anatomy", "pathology_group", "mucosal_findings", "vascular_findings",
+        "airway_wall_findings", "stenosis", "tumor", "secretion", "vocal_cords", "other_findings"
+      ],
+      "properties": {
+        "anatomy": {
+          "type": "array", "items": {"$ref": "#/$defs/anatomy"}, "uniqueItems": true
+        },
+        "pathology_group": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "mucosal_lesion", "vascular_abnormality", "tumor", "stenosis", "secretion",
+              "airway_wall_abnormality", "vocal_cord_abnormality", "other"
+            ]
+          },
+          "uniqueItems": true,
+          "description": "Positive-only set; omitted groups are unknown, not negative"
+        },
+        "mucosal_findings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "infiltration", "erythema", "carinal_edema", "anthracotic_pigmentation",
+            "pseudomembrane", "ulceration", "smooth_mucosa", "mucosal_atrophy", "visible_orifice", "other"
+          ],
+          "properties": {
+            "infiltration": {"$ref": "#/$defs/triState"},
+            "erythema": {"$ref": "#/$defs/triState"},
+            "carinal_edema": {"$ref": "#/$defs/triState"},
+            "anthracotic_pigmentation": {"$ref": "#/$defs/triState"},
+            "pseudomembrane": {"$ref": "#/$defs/triState"},
+            "ulceration": {"$ref": "#/$defs/triState"},
+            "smooth_mucosa": {"$ref": "#/$defs/triState"},
+            "mucosal_atrophy": {"$ref": "#/$defs/triState"},
+            "visible_orifice": {"$ref": "#/$defs/triState"},
+            "other": {"$ref": "#/$defs/triState"}
+          }
+        },
+        "vascular_findings": {
+          "type": "object", "additionalProperties": false, "required": ["hypervascularity"],
+          "properties": {"hypervascularity": {"$ref": "#/$defs/triState"}}
+        },
+        "airway_wall_findings": {
+          "type": "object", "additionalProperties": false, "required": ["tracheomalacia"],
+          "properties": {"tracheomalacia": {"$ref": "#/$defs/triState"}}
+        },
+        "stenosis": {
+          "type": "object", "additionalProperties": false,
+          "required": ["presence", "severity", "cause"],
+          "properties": {
+            "presence": {"$ref": "#/$defs/triState"},
+            "severity": {
+              "type": ["string", "null"],
+              "enum": ["0_25_percent", "26_50_percent", "51_75_percent", "76_90_percent", "over_90_percent", null]
+            },
+            "cause": {
+              "type": ["string", "null"],
+              "enum": ["scarring", "tumor", "external_compression", "endoluminal_lesion", "torsion", "mixed", null]
+            }
+          }
+        },
+        "tumor": {
+          "type": "object", "additionalProperties": false, "required": ["presence", "morphology"],
+          "properties": {
+            "presence": {"$ref": "#/$defs/triState"},
+            "morphology": {"type": ["string", "null"], "enum": ["pedunculated", "non_pedunculated", null]}
+          }
+        },
+        "secretion": {
+          "type": "object", "additionalProperties": false,
+          "required": ["presence", "type", "color", "consistency"],
+          "properties": {
+            "presence": {"$ref": "#/$defs/triState"},
+            "type": {"type": ["string", "null"], "enum": ["blood", "purulent", null]},
+            "color": {"type": ["string", "null"], "enum": ["bright_red", "dark_red", null]},
+            "consistency": {"type": ["string", "null"], "enum": ["clotted", null]}
+          }
+        },
+        "vocal_cords": {
+          "type": "object", "additionalProperties": false, "required": ["normal", "paralysis"],
+          "properties": {
+            "normal": {"$ref": "#/$defs/triState"},
+            "paralysis": {"$ref": "#/$defs/triState"}
+          }
+        },
+        "other_findings": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_group", "source_annotation_path", "source_annotation_sha256",
+        "source_procedure_id", "source_image_id", "source_impression_ids"
+      ],
+      "properties": {
+        "source_group": {"type": "string", "enum": ["case", "control", "supplemental"]},
+        "source_annotation_path": {"type": "string"},
+        "source_annotation_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "source_procedure_id": {"type": "string"},
+        "source_image_id": {"type": "string"},
+        "source_impression_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    }
+  }
+}

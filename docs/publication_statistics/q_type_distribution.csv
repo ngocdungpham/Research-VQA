@@ -1,0 +1,4 @@
+q_type,count,percentage,train,validation,test
+closed_ended_questions,13364,48.473,9469,1973,1922
+open_ended_questions,12529,45.4443,8871,1818,1840
+single_choice_questions,1677,6.0827,1139,270,268

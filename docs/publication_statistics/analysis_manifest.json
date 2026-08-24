@@ -1,0 +1,140 @@
+{
+  "analysis": "bronchoscopy_vqa_publication_statistics_v1",
+  "environment": {
+    "matplotlib": "3.10.1",
+    "numpy": "1.26.4",
+    "python": "3.12.4",
+    "wordcloud": "1.9.6"
+  },
+  "inputs": [
+    {
+      "bytes": 110860414,
+      "path": "derived_v4_3_vision_production/final_release/dataset_export/master_bronchoscopy_vqa.json",
+      "sha256": "11927db5cd91a6a54c5d560c47fbc17c39b0029c32a491d05aa67458474461ea"
+    },
+    {
+      "bytes": 5883828,
+      "path": "derived_v4/facts_v1.jsonl.gz",
+      "sha256": "6b4be16033c19342077dce83e5ae897f08d3311dc338b6620574ff160e416a38"
+    },
+    {
+      "bytes": 18556440,
+      "path": "derived_v4_3_vision_production/final_release/dataset_export/train.json",
+      "sha256": "32104d3f3f5aac901ad5338ae51c0e7b8e04e2cb6f6a3a98adcbfd41a6928df2"
+    },
+    {
+      "bytes": 3911773,
+      "path": "derived_v4_3_vision_production/final_release/dataset_export/val.json",
+      "sha256": "25e5e8cdc35125c4549c55f7f938e553e8ddbb33d67680a3638eddbc9290ee87"
+    },
+    {
+      "bytes": 3852482,
+      "path": "derived_v4_3_vision_production/final_release/dataset_export/test.json",
+      "sha256": "a420d086bd88d59ee07b12ff52b6c3b3dbcec0798137b31c0f0ac9f95dce854c"
+    }
+  ],
+  "outputs": [
+    {
+      "bytes": 3881,
+      "path": "docs/publication_statistics/REPORT_VI.md",
+      "sha256": "d51f4d69065bead2ab6cde320b88bd3194860601d7ed1224869fe9ca8a3a00f7"
+    },
+    {
+      "bytes": 992,
+      "path": "docs/publication_statistics/anatomical_region_distribution.csv",
+      "sha256": "abb1261df7b634c8d0131ba3cf649dbaed92670b24b1fe49367c2a1f089d8f48"
+    },
+    {
+      "bytes": 36010,
+      "path": "docs/publication_statistics/figure_3_dataset_composition.pdf",
+      "sha256": "aa0206e3fc6a1bb75d4da34ef48a143814ecd7f4cab1f15a803b0838043e9fd2"
+    },
+    {
+      "bytes": 674578,
+      "path": "docs/publication_statistics/figure_3_dataset_composition.png",
+      "sha256": "7d0c02fcab67a0de3761eeb984252167034fbbab8b9647f74ca9404017279913"
+    },
+    {
+      "bytes": 1224667,
+      "path": "docs/publication_statistics/figure_4_language_analysis.pdf",
+      "sha256": "a0b37c6a17c5926c5676b28b99a196fb0566f585eaee33a394b1c53d0361a094"
+    },
+    {
+      "bytes": 1536447,
+      "path": "docs/publication_statistics/figure_4_language_analysis.png",
+      "sha256": "7bd9ba24a8c2ea80bb082b7b84bdbbd275f9433479860d7fd426281fa807ba61"
+    },
+    {
+      "bytes": 364,
+      "path": "docs/publication_statistics/language_length_summary.csv",
+      "sha256": "e369b108f8e6b02baf20975bfcb81eac24f4798ca84558a50ddf93ac12ae5320"
+    },
+    {
+      "bytes": 158,
+      "path": "docs/publication_statistics/normality_distribution.csv",
+      "sha256": "c2575f010e23910d9df7db17ed959d9b2053440c0c02954576d8a2b465399819"
+    },
+    {
+      "bytes": 200,
+      "path": "docs/publication_statistics/q_type_distribution.csv",
+      "sha256": "59dae3ced5338fb1f87d8fb5d255c6cf217d666e8f180fe689f92ac848ba6277"
+    },
+    {
+      "bytes": 633,
+      "path": "docs/publication_statistics/question_type_distribution.csv",
+      "sha256": "3846d1003e9161768187841ccc81d9b1ea12048a23a331b34de3b96799ba3607"
+    },
+    {
+      "bytes": 14275,
+      "path": "docs/publication_statistics/statistics.json",
+      "sha256": "6b49c8bdb93032c5d4e92f2e08de8144ad4523044ea6fc17f43dd6a526f5759f"
+    },
+    {
+      "bytes": 727,
+      "path": "docs/publication_statistics/table_1_dataset_split_statistics.csv",
+      "sha256": "0a53a91d68599a64f0cb29ea70d8907a48d42f1a7d867de973070d9fdde9faa2"
+    },
+    {
+      "bytes": 800,
+      "path": "docs/publication_statistics/table_1_dataset_split_statistics.md",
+      "sha256": "6eb37f1a39b9e7401483f34119188c55a6eacef3c641ca177a527889b7932228"
+    },
+    {
+      "bytes": 1046,
+      "path": "docs/publication_statistics/table_1_dataset_split_statistics.tex",
+      "sha256": "f5e3a87c85913898023b453bf39ec7a257d210222ef267c6af3a310f8e1d0109"
+    },
+    {
+      "bytes": 8574,
+      "path": "docs/publication_statistics/word_frequency_explanation.csv",
+      "sha256": "b67c74d3b91d9a0b3b4b61c811bec61ae1627aadcc3a4c2cbd5c4351a32ef725"
+    },
+    {
+      "bytes": 2907,
+      "path": "docs/publication_statistics/word_frequency_question.csv",
+      "sha256": "4599c28d41e933d671165e8f5c533c278841051e98c273e23baeb9bf3db5a248"
+    },
+    {
+      "bytes": 914833,
+      "path": "docs/publication_statistics/wordcloud_explanations.png",
+      "sha256": "391e4f681aa174e644bd46d54ad35f7e6e49e4e9a800ad9c99b78e25b4aa12ea"
+    },
+    {
+      "bytes": 895772,
+      "path": "docs/publication_statistics/wordcloud_questions.png",
+      "sha256": "c62f2e611e13fe2afc86156564c9b117cde558489da459f29397b56970fc8adf"
+    }
+  ],
+  "script": "dataset_versioning/analyze_vqa_v4_3_statistics.py",
+  "script_sha256": "4ed0213dd1c504db7dcfe9d47e3a69c6ed2425fba496b8ee25d33ad446ed5a25",
+  "validation": {
+    "master_exportable_records": 27570,
+    "qa_id_split_overlaps": {
+      "train__test": 0,
+      "train__validation": 0,
+      "validation__test": 0
+    },
+    "records": 27570,
+    "status": "PASS"
+  }
+}

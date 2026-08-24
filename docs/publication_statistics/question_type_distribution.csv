@@ -1,0 +1,16 @@
+question_type,count,percentage,train,validation,test
+abnormality,9640,34.9655,6879,1394,1367
+image_normality,6374,23.1193,4543,911,920
+abnormality_presence,5426,19.6808,3872,784,770
+stenosis_degree,1677,6.0827,1139,270,268
+secretion_type,1253,4.5448,874,197,182
+secretion,949,3.4421,632,188,129
+stenosis_cause,688,2.4955,493,89,106
+mucosal_surface,420,1.5234,301,57,62
+vocal_cords_normality,321,1.1643,219,42,60
+vocal_cords,300,1.0881,204,38,58
+secretion_color,169,0.613,83,37,49
+vascular,150,0.5441,96,32,22
+tumor_morphology,122,0.4425,88,20,14
+secretion_consistency,79,0.2865,55,2,22
+normal_findings,2,0.0073,1,0,1

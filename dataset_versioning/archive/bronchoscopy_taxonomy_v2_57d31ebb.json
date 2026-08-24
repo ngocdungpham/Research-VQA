@@ -1,0 +1,185 @@
+{
+  "taxonomy_version": "bronchoscopy_taxonomy_v2",
+  "schema_version": "2.0",
+  "three_state_semantics": {
+    "true": "The concept was explicitly confirmed present.",
+    "false": "The concept was explicitly confirmed absent.",
+    "null": "The concept was not annotated, was unknown, or could not be determined. Null must never be exported as a negative label."
+  },
+  "positive_only_collections": {
+    "anatomical_location": "Items in the array are confirmed. Missing items are unknown, not negative.",
+    "pathology_group": "Items in the array are confirmed. Missing groups are unknown, not negative.",
+    "source_label_ids": "Original evidence identifiers retained for traceability."
+  },
+  "anatomy": [
+    "larynx",
+    "vocal_cords",
+    "trachea",
+    "carina",
+    "right_main_bronchus",
+    "left_main_bronchus",
+    "intermediate_bronchus",
+    "right_upper_lobe_bronchus",
+    "right_middle_lobe_bronchus",
+    "right_lower_lobe_bronchus",
+    "left_upper_lobe_bronchus",
+    "left_lower_lobe_bronchus",
+    "left_lingula_segment_bronchus",
+    "left_apical_segment_bronchus"
+  ],
+  "pathology_groups": [
+    "mucosal_lesion",
+    "vascular_abnormality",
+    "tumor",
+    "stenosis",
+    "secretion",
+    "airway_wall_abnormality",
+    "vocal_cord_abnormality",
+    "other"
+  ],
+  "mucosal_findings": [
+    "infiltration",
+    "erythema",
+    "carinal_edema",
+    "anthracotic_pigmentation",
+    "pseudomembrane",
+    "ulceration",
+    "smooth_mucosa",
+    "mucosal_atrophy",
+    "visible_orifice",
+    "other"
+  ],
+  "stenosis_severity": [
+    "0_25_percent",
+    "26_50_percent",
+    "51_75_percent",
+    "76_90_percent",
+    "over_90_percent"
+  ],
+  "stenosis_cause": [
+    "scarring",
+    "tumor",
+    "external_compression",
+    "endoluminal_lesion",
+    "torsion",
+    "mixed"
+  ],
+  "tumor_morphology": [
+    "pedunculated",
+    "non_pedunculated"
+  ],
+  "secretion_type": [
+    "blood",
+    "purulent"
+  ],
+  "secretion_color": [
+    "bright_red",
+    "dark_red"
+  ],
+  "secretion_consistency": [
+    "clotted"
+  ],
+  "source_aliases": {
+    "anatomy": {
+      "thanh quản": "larynx",
+      "dây thanh": "vocal_cords",
+      "vocal cords": "vocal_cords",
+      "khí quản": "trachea",
+      "trachea": "trachea",
+      "carina": "carina",
+      "main carina": "carina",
+      "phế quản gốc phải": "right_main_bronchus",
+      "right main bronchus": "right_main_bronchus",
+      "phế quản gốc trái": "left_main_bronchus",
+      "left main bronchus": "left_main_bronchus",
+      "phế quản trung gian": "intermediate_bronchus",
+      "intermediate bronchus": "intermediate_bronchus",
+      "phế quản thuỳ trên phải": "right_upper_lobe_bronchus",
+      "right superior lobar bronchus": "right_upper_lobe_bronchus",
+      "phế quản thùy giữa phải": "right_middle_lobe_bronchus",
+      "phế quản thuỳ giữa phải": "right_middle_lobe_bronchus",
+      "right middle lobar bronchus": "right_middle_lobe_bronchus",
+      "phế quản thuỳ dưới phải": "right_lower_lobe_bronchus",
+      "right inferior lobar bronchus": "right_lower_lobe_bronchus",
+      "phế quản thuỳ trên trái": "left_upper_lobe_bronchus",
+      "left superior lobar bronchus": "left_upper_lobe_bronchus",
+      "phế quản thuỳ dưới trái": "left_lower_lobe_bronchus",
+      "left inferior lobar bronchus": "left_lower_lobe_bronchus",
+      "phế quản phân thuỳ lưỡi": "left_lingula_segment_bronchus",
+      "phế quản phân thuỳ lưỡi trái": "left_lingula_segment_bronchus",
+      "phế quản phân thuỳ đỉnh trái": "left_apical_segment_bronchus"
+    },
+    "mucosal_findings": {
+      "niêm mạc thâm nhiễm": "infiltration",
+      "mucosal infiltration": "infiltration",
+      "niêm mạc xung huyết": "erythema",
+      "muscosal erythema": "erythema",
+      "cựa phế quản phù nề": "carinal_edema",
+      "mucosal edema of carina": "carinal_edema",
+      "có mảng sắc tố đen": "anthracotic_pigmentation",
+      "anthrocosis": "anthracotic_pigmentation",
+      "niêm mạc có giả mạc": "pseudomembrane",
+      "loét niêm mạc": "ulceration",
+      "niêm mạc nhẵn": "smooth_mucosa",
+      "niêm mạc teo": "mucosal_atrophy",
+      "lỗ rõ": "visible_orifice",
+      "tổn thương khác": "other"
+    },
+    "image_state": {
+      "2.1 hình ảnh nội soi bình thường": {
+        "field": "normal",
+        "value": true
+      },
+      "2.2 hình ảnh nội soi bất thường": {
+        "field": "normal",
+        "value": false
+      },
+      "dữ liệu không đạt chất lượng": {
+        "field": "image_quality",
+        "value": "poor"
+      }
+    },
+    "procedure_labels": {
+      "1.1 ung thư phổi": {
+        "field": "lung_cancer",
+        "value": true
+      },
+      "1.2 không ung thư": {
+        "field": "lung_cancer",
+        "value": false
+      },
+      "2.3.1 tổn thương một vị trí": {
+        "field": "lesion_site_count",
+        "value": "single"
+      },
+      "2.3.2 tổn thương hơn một vị trí": {
+        "field": "lesion_site_count",
+        "value": "multiple"
+      },
+      "2.4.1 tổn thương tại một thuỳ": {
+        "field": "lesion_extent",
+        "value": "single_lobe"
+      },
+      "2.4.2 tổn thương tại nhiều thùy": {
+        "field": "lesion_extent",
+        "value": "multiple_lobes"
+      },
+      "2.4.3 tổn thương phế quản gốc": {
+        "field": "lesion_extent",
+        "value": "main_bronchus"
+      },
+      "2.4.4 tổn thương carina": {
+        "field": "lesion_extent",
+        "value": "carina"
+      },
+      "2.4.5 tổn thương cả hai bên phổi": {
+        "field": "lesion_extent",
+        "value": "bilateral_lungs"
+      },
+      "2.4.6 tổn thương khí quản": {
+        "field": "lesion_extent",
+        "value": "trachea"
+      }
+    }
+  }
+}

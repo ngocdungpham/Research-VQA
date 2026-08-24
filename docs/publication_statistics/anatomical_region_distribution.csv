@@ -1,0 +1,14 @@
+anatomy_code,label_vi,grounded_qa_count,grounded_qa_percentage,unique_evidence_regions,question_text_mentions
+right_upper_lobe_bronchus,phế quản thùy trên phải,1290,4.679,523,572
+right_middle_lobe_bronchus,phế quản thùy giữa phải,1126,4.0841,445,481
+left_main_bronchus,phế quản gốc trái,967,3.5074,342,365
+left_lower_lobe_bronchus,phế quản thùy dưới trái,929,3.3696,385,383
+left_upper_lobe_bronchus,phế quản thùy trên trái,890,3.2281,353,375
+right_lower_lobe_bronchus,phế quản thùy dưới phải,871,3.1592,371,392
+vocal_cords,dây thanh,745,2.7022,384,722
+intermediate_bronchus,phế quản trung gian,710,2.5753,268,312
+left_apical_segment_bronchus,phế quản phân thùy đỉnh trái,657,2.383,272,266
+carina,carina,457,1.6576,237,294
+right_main_bronchus,phế quản gốc phải,448,1.625,152,174
+left_lingula_segment_bronchus,phế quản phân thùy lưỡi trái,350,1.2695,149,136
+trachea,khí quản,344,1.2477,115,156
