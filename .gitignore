@@ -66,6 +66,7 @@ Thumbs.db
 /train_vqa_hf/
 /run_logs/
 /reports/
+/demo_output/
 
 # Local case-level provenance reports may contain pseudonymous source paths
 /docs/internal/

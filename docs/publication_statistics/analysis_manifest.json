@@ -1,9 +1,9 @@
 {
   "analysis": "bronchoscopy_vqa_publication_statistics_v1",
   "environment": {
-    "matplotlib": "3.10.1",
-    "numpy": "1.26.4",
-    "python": "3.12.4",
+    "matplotlib": "3.10.9",
+    "numpy": "2.2.6",
+    "python": "3.10.12",
     "wordcloud": "1.9.6"
   },
   "inputs": [
@@ -47,22 +47,22 @@
     {
       "bytes": 36010,
       "path": "docs/publication_statistics/figure_3_dataset_composition.pdf",
-      "sha256": "aa0206e3fc6a1bb75d4da34ef48a143814ecd7f4cab1f15a803b0838043e9fd2"
+      "sha256": "d35d97d45b37d775459b10072efced544ad7ff9c757b2d78bf35ab0a5fb24936"
     },
     {
-      "bytes": 674578,
+      "bytes": 674579,
       "path": "docs/publication_statistics/figure_3_dataset_composition.png",
-      "sha256": "7d0c02fcab67a0de3761eeb984252167034fbbab8b9647f74ca9404017279913"
+      "sha256": "3c6af60c37c6b5c4c856a01655a9cbe3c0c6d2868ea7e39e6ed61ec1dbd1785d"
     },
     {
       "bytes": 1224667,
       "path": "docs/publication_statistics/figure_4_language_analysis.pdf",
-      "sha256": "a0b37c6a17c5926c5676b28b99a196fb0566f585eaee33a394b1c53d0361a094"
+      "sha256": "f78e72238094efe116cd76fb9bc7491baee0c5cd88e0c736b2ced0124a5460d6"
     },
     {
       "bytes": 1536447,
       "path": "docs/publication_statistics/figure_4_language_analysis.png",
-      "sha256": "7bd9ba24a8c2ea80bb082b7b84bdbbd275f9433479860d7fd426281fa807ba61"
+      "sha256": "3f473a8b2ead948964875743aa5f2dde6c3a9cc124329a65aec077e29cd03e0f"
     },
     {
       "bytes": 364,
@@ -117,12 +117,12 @@
     {
       "bytes": 914833,
       "path": "docs/publication_statistics/wordcloud_explanations.png",
-      "sha256": "391e4f681aa174e644bd46d54ad35f7e6e49e4e9a800ad9c99b78e25b4aa12ea"
+      "sha256": "3051c9bc435814985423d67fa70ef9049a68a400f4d26f1aa2eca596c23b5a8e"
     },
     {
       "bytes": 895772,
       "path": "docs/publication_statistics/wordcloud_questions.png",
-      "sha256": "c62f2e611e13fe2afc86156564c9b117cde558489da459f29397b56970fc8adf"
+      "sha256": "ee492d80f6ba1bf7b53234f101a0e53adc58a2822618deac0d65a01ed7626231"
     }
   ],
   "script": "dataset_versioning/analyze_vqa_v4_3_statistics.py",
