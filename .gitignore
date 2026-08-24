@@ -81,7 +81,6 @@ Thumbs.db
 !/requirements-pipeline.txt
 
 # Binary medical assets are private by default; publication figures are allowed
-*.png
 *.jpg
 *.jpeg
 *.dcm
